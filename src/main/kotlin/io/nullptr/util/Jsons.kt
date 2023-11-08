@@ -8,4 +8,6 @@ object Jsons {
     val mapper = jacksonObjectMapper()
 
     inline fun <reified T : Any> readValue(text: String) = mapper.readValue<T>(text)
+
+    inline fun <reified T : Any> convertValue(from: Any): T = mapper.convertValue(from, T::class.java)
 }
